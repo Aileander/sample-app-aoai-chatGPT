@@ -46,7 +46,7 @@ UI_CHAT_DESCRIPTION = (
     os.environ.get("UI_CHAT_DESCRIPTION")
     or "Hello, How can ChatOGI help you today?"
 )
-UI_FAVICON = os.environ.get("UI_FAVICON") or "/favicon.ico"
+UI_FAVICON = os.environ.get("UI_FAVICON") or "/portal.ico"
 UI_SHOW_SHARE_BUTTON = os.environ.get("UI_SHOW_SHARE_BUTTON", "true").lower() == "true"
 
 
@@ -62,9 +62,9 @@ async def index():
     return await render_template("index.html", title=UI_TITLE, favicon=UI_FAVICON)
 
 
-@bp.route("/favicon.ico")
+@bp.route("/portal.ico")
 async def favicon():
-    return await bp.send_static_file("favicon.ico")
+    return await bp.send_static_file("portal.ico")
 
 
 @bp.route("/assets/<path:path>")
